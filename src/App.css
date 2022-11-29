@@ -1,38 +1,313 @@
-.App {
+.poke-list-container {
+  background-color: #F1E6B2;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 82px;
+  padding-bottom: 102px;
+}
+
+.poke-list-card {
+  padding: 8px;
+  border-radius: 2px;
+  background-color: #73BDA8;
+  color: #362e49;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.poke-list-card:hover,
+.poke-list-card.selected {
+  background-color: #6F5643;
+  color: #FFF;
+  margin-left: 24px;
+}
+
+.title,
+.poke-order {
+  font-size: 16px;
+  font-weight: 700;
+  flex-grow: 1;
+}
+
+.title,
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.poke-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #362e49;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 16px;
+  gap: 16px;
+  position: fixed;
+  width: 100%;
+  max-width: calc(411px - 32px);
+  background: white;
+  box-shadow: rgb(0 0 0 / 10%) 0px 2px 4px 0px;
+}
+
+.compare,
+.compare.active:hover {
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #CC6B49;
+  color: #FFF;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.compare:hover,
+.compare.active {
+  background-color: #6F5643;
+  color: #FFF;
+}
+
+.footer {
+  padding: 16px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: calc(411px - 32px);
+  background: white;
+  box-shadow: rgb(0 0 0 / 10%) 0px 2px 4px 0px;
+}
+
+.footer .footer-btn {
+  background-color: #CC6B49;
+  padding: 8px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFF;
+}
+
+.active {
+  cursor: pointer;
+}
+
+.footer .footer-btn.disable {
+  background-color: grey;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.d-flex {
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.card-container {
+  width: 50%;
+  background-color: #73BDA8;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+img {
+  background-color: white;
+  width: 100%;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.stat-container {
+  width: 50%;
+  background-color: #F1E6B2;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.poke-type {
+  display: flex;
+  flex-flow: wrap;
+  gap: 8px;
+  padding: 12px 0;
+}
+
+.poke-type div {
+  padding: 4px 8px;
+  border-radius: 4px;
+  min-width: 50px;
+  font-size: 10px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.poke-order {
+  margin-bottom: 8px;
+}
+
+.detail-title {
+  background-color: #F1E6B2;
+  padding: 12px 48px 12px 12px;
+  border-radius: 0 25px 25px 0;
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.poke-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.poke-list-card,
+.poke-desc {
+  text-transform: capitalize;
+}
+
+.icons {
+  width: 20px;
+}
+
+.icons-lg {
+  width: 24px;
+}
+
+.poke-desc {
+  font-size: 14px;
+  background-color: white;
+  border-radius: 4px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.poke-desc.row {
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 411px) {
+  .calculate-on-small {
+    font-size: 14px;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+.poke-desc p:first-child {
+  font-weight: 600;
+}
+
+.poke-selected {
+  display: flex;
+  gap: 8px;
+}
+
+.poke-selected div {
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #73BDA8;
+  margin-bottom: 8px;
+  cursor: pointer;
+  text-transform: capitalize;
+  color: white;
+  font-size: 12px;
+}
+
+.pt-58 {
+  padding-top: 58px;
+}
+
+.compare-container {
+  gap: 8px;
+}
+
+.poke-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.bug {
+  background: linear-gradient(180deg, #729f3f 50%, #729f3f 50%);
+  color: white;
+}
+
+.dragon {
+  background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  color: white;
+}
+
+.dark {
+  background: linear-gradient(180deg, #707070 50%, #707070 50%);
+  color: white;
+}
+
+.electric {
+  background: linear-gradient(180deg, #eed535 50%, #eed535 50%);
+}
+
+.fairy {
+  background: linear-gradient(180deg, #fdb9e9 50%, #fdb9e9 50%);
+}
+
+.fighting {
+  background: linear-gradient(180deg, #d56723 50%, #d56723 50%);
+  color: white;
+}
+
+.fire {
+  background: linear-gradient(180deg, #fd7d24 50%, #fd7d24 50%);
+  color: white;
+}
+
+.flying {
+  background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+}
+
+.ghost {
+  background: linear-gradient(180deg, #7b62a3 50%, #7b62a3 50%);
+  color: white;
+}
+
+.grass {
+  background: linear-gradient(180deg, #9bcc50 50%, #9bcc50 50%);
+}
+
+.ground {
+  background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+}
+
+.ice {
+  background: linear-gradient(180deg, #51c4e7 50%, #51c4e7 50%);
+}
+
+.normal {
+  background: linear-gradient(180deg, #a4acaf 50%, #a4acaf 50%);
+}
+
+.poison {
+  background: linear-gradient(180deg, #b97fc9 50%, #b97fc9 50%);
+  color: white;
+}
+
+.physhic {
+  background: linear-gradient(180deg, #b97fc9 50%, #b97fc9 50%);
+  color: white;
+}
+
+.rock {
+  background: linear-gradient(180deg, #a38c21 50%, #a38c21 50%);
+  color: white;
+}
+
+.steel {
+  background: linear-gradient(180deg, #9eb7b8 50%, #9eb7b8 50%);
+}
+
+.water {
+  background: linear-gradient(180deg, #4592c4 50%, #4592c4 50%);
+  color: white;
 }
