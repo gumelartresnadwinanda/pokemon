@@ -5,6 +5,7 @@ import "./index.css";
 import "./App.css";
 import Home from "./pages";
 import PokemonDetail from "./pages/detail";
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 // Routing List
 const router = createBrowserRouter([
@@ -24,3 +25,5 @@ root.render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
+
+serviceWorkerRegistration.register();
