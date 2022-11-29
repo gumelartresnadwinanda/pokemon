@@ -2,6 +2,7 @@
 
 Exploration project for pokemon list, required from GovTechEdu recruitment team
 This project using react.js
+API call & image request are cached using Service Worker with `Cache first, falling back to network` Strategy
 
 # API
 
