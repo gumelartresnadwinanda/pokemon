@@ -9,20 +9,31 @@ export default function Detail() {
   const { name } = useParams();
   // object to hold pokemon detail
   const [pokeDetail, setPokeDetail] = useState(null);
+  const [error, setError] = useState(false);
 
   // get detail pokemon based on pokemon name
   useEffect(() => {
     getPokemonByName(name)
       .then((result) => {
         setPokeDetail(result);
+        setError(false);
       })
-      .catch((e) => {
-        console.error(e);
+      .catch(() => {
+        setError(true);
       });
   }, [name]);
 
-  if (!pokeDetail) return null;
+  if (error) return (
+    <div className="header">
+      <Link className="d-flex" to="..">
+        <img src={back} className="icons" alt="back" />
+      </Link>
+      <p className="title">Pokémon Detail</p>
+    </div>
+  );
 
+  if (!error && !pokeDetail) return null;
+  
   return (
     <div>
       <div className="header">
